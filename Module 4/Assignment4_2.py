@@ -9,7 +9,7 @@ shifts = int(input("Please enter number of shifts: "))
 transactionAmount = int(input("Please enter the number of transactions: "))
 
 # transaction dollar value
-transactionValue = int(input("Please enter the transaction dollar value: "))
+transactionValue = float(input("Please enter the transaction dollar value: "))
 
 # calculate productivity score
 # productivity score = (employee transaction dollar value / number of transactions) / number of shifts worked
