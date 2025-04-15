@@ -5,7 +5,8 @@ def onLoad():
         menuSelection = input(" ")
         # print authorizedVehicle list
         if (menuSelection == '1'): 
-            print("The AutoCountry sales manager has authorized the purchase and selling of the following vehicles: ")
+            print("The AutoCountry sales manager has authorized" \
+            " the purchase and selling of the following vehicles: ")
             listAuthorizedVehicles()
         # end menu selection and close
         if (menuSelection == '2'): 
@@ -26,7 +27,8 @@ def displayMenu():
 def listAuthorizedVehicles(): 
     # What are the authorized vehicles
         # Ford F-150, Chevrolet Silverado, Tesla CyberTruck, Toyota Tundra, Nissan Titan
-    authorizedVehicles = ["Ford F-150", "Chevrolet Silverado", "Tesla CyberTruck", "Toyota Tundra", "Nissan Titan"]
+    authorizedVehicles = ["Ford F-150", "Chevrolet Silverado",
+                           "Tesla CyberTruck", "Toyota Tundra", "Nissan Titan"]
     # print authorizedVehicles list
     for item in authorizedVehicles:
             print(item)
