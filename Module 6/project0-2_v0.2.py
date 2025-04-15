@@ -8,9 +8,10 @@ def onLoad():
             print("The AutoCountry sales manager has authorized" \
             " the purchase and selling of the following vehicles: ")
             listAuthorizedVehicles()
-        # end menu selection and close
+        # enter full vehicle name and print if authorized or not
         if (menuSelection == '2'): 
             checkVehicleName()
+        # end menu selection and close
         if (menuSelection == '3'): 
             print("Thank you for using the AutoCountry Vehicle Finder, good-bye!")
             break
@@ -45,7 +46,8 @@ def checkVehicleName():
     if vehicleName in checkVehicleName:
         print(f"{vehicleName} is an authorized vehicle")
     else: 
-        print(f"{vehicleName} is NOT an authorized vehicle")
+        print(f"{vehicleName} is not an authorized vehicle, if you received
+              this in error please check the spelling and try again")
           
 
 # final onLoad - prints what is shown in onLoad def function
