@@ -43,11 +43,10 @@ def checkVehicleName():
                            "Tesla CyberTruck", "Toyota Tundra", "Nissan Titan"]
      # enter vehicle name
     vehicleName = input("Please Enter the full Vehicle name: ")
-    if vehicleName in checkVehicleName:
+    if vehicleName in authorizedVehicles:
         print(f"{vehicleName} is an authorized vehicle")
     else: 
-        print(f"{vehicleName} is not an authorized vehicle, if you received
-              this in error please check the spelling and try again")
+        print(f"{vehicleName} is not an authorized vehicle, if you received this in error please check the spelling and try again")
           
 
 # final onLoad - prints what is shown in onLoad def function
