@@ -11,8 +11,10 @@ def onLoad():
         # enter full vehicle name and print if authorized or not
         if (menuSelection == '2'): 
             checkVehicleName()
-        # end menu selection and close
         if (menuSelection == '3'): 
+            addVehicleName()
+        # end menu selection and close
+        if (menuSelection == '4'): 
             print("Thank you for using the AutoCountry Vehicle Finder, good-bye!")
             break
 
@@ -25,8 +27,8 @@ def displayMenu():
     print("Please Enter the following number below from the following menu: ")
     print("1. PRINT all Authorized Vehicles")
     print("2. SEARCH for Authorized Vehicle")
-    print("ADD Authorized Vehicle")
-    print("3. Exit")
+    print("3. ADD Authorized Vehicle")
+    print("4. Exit")
 
 # create def for authorizedVehicles
 def listAuthorizedVehicles(): 
@@ -54,8 +56,11 @@ def checkVehicleName():
 def addVehicleName(): 
     addName = input("Please Enter the full Vehicle name you would like to add: ")
     # enter new vehicleName
-
+    authorizedVehicles = ["Ford F-150", "Chevrolet Silverado",
+                          "Tesla CyberTruck", "Toyota Tundra", "Nissan Titan"]
+    authorizedVehicles.append = input(addName)
     # print authorizedVehicles list with new vehicles added
+    print(authorizedVehicles)
 
 # final onLoad - prints what is shown in onLoad def function
 onLoad()
