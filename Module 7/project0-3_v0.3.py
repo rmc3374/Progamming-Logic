@@ -26,7 +26,7 @@ def onLoad():
 # displayMenu shows:
 def displayMenu(): 
     print("****************")
-    print("AutoCountry Vehicle Finder v0.1")
+    print("AutoCountry Vehicle Finder v0.3")
     print("****************")
     print("Please Enter the following number below from the following menu: ")
     print("1. PRINT all Authorized Vehicles")
