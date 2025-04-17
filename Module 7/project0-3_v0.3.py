@@ -1,4 +1,8 @@
-# onLoad - will pring display menu
+# global list of authorized vehicles
+authorizedVehicles = ["Ford F-150", "Chevrolet Silverado",
+                        "Tesla CyberTruck", "Toyota Tundra", "Nissan Titan"]
+
+#  onLoad - will pring display menu
 def onLoad(): 
     while(True): 
         displayMenu()
@@ -32,18 +36,13 @@ def displayMenu():
 
 # create def for authorizedVehicles
 def listAuthorizedVehicles(): 
-    # What are the authorized vehicles
-        # Ford F-150, Chevrolet Silverado, Tesla CyberTruck, Toyota Tundra, Nissan Titan
-    authorizedVehicles = ["Ford F-150", "Chevrolet Silverado",
-                           "Tesla CyberTruck", "Toyota Tundra", "Nissan Titan"]
+    # What are the authorized vehicles: Ford F-150, Chevrolet Silverado, Tesla CyberTruck, Toyota Tundra, Nissan Titan
     # print authorizedVehicles list
     for item in authorizedVehicles:
             print(item)
 
 # create def for vehicleName - need to print each name individually and state if its authorized or not
 def checkVehicleName(): 
-    authorizedVehicles = ["Ford F-150", "Chevrolet Silverado",
-                           "Tesla CyberTruck", "Toyota Tundra", "Nissan Titan"]
      # enter vehicle name
     vehicleName = input("Please Enter the full Vehicle name: ")
     if vehicleName in authorizedVehicles:
@@ -54,13 +53,12 @@ def checkVehicleName():
           
 # create def for ADD vehicleName
 def addVehicleName(): 
+    global authorizedVehicles
     addName = input("Please Enter the full Vehicle name you would like to add: ")
     # enter new vehicleName
-    authorizedVehicles = ["Ford F-150", "Chevrolet Silverado",
-                          "Tesla CyberTruck", "Toyota Tundra", "Nissan Titan"]
-    authorizedVehicles.append = input(addName)
+    authorizedVehicles.append(addName)
     # print authorizedVehicles list with new vehicles added
-    print(authorizedVehicles)
+    print(f'You have added "{addName}" as an authorized vehicle')
 
 # final onLoad - prints what is shown in onLoad def function
 onLoad()
