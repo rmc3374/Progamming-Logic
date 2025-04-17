@@ -1,6 +1,7 @@
 # global list of authorized vehicles
 authorizedVehicles = ["Ford F-150", "Chevrolet Silverado",
-                        "Tesla CyberTruck", "Toyota Tundra", "Nissan Titan"]
+                        "Tesla CyberTruck", "Toyota Tundra",
+                          "Nissan Titan", "Rivian R1T", "Ram 1500"]
 
 #  onLoad - will pring display menu
 def onLoad(): 
@@ -21,7 +22,8 @@ def onLoad():
         if (menuSelection == '4'): 
             deleteVehicleName()
         if (menuSelection == '5'): 
-            print("Thank you for using the AutoCountry Vehicle Finder, good-bye!")
+            print("Thank you for using the AutoCountry" \
+                   "Vehicle Finder, good-bye!")
             break
 
     
@@ -30,15 +32,18 @@ def displayMenu():
     print("****************")
     print("AutoCountry Vehicle Finder v0.4")
     print("****************")
-    print("Please Enter the following number below from the following menu: ")
+    print("Please Enter the following number below " \
+    "from the following menu: ")
     print("1. PRINT all Authorized Vehicles")
     print("2. SEARCH for Authorized Vehicle")
     print("3. ADD Authorized Vehicle")
-    print("4. Exit")
+    print("4. DELETE Authorized Vehicle")
+    print("5. Exit")
 
 # create def for authorizedVehicles
 def listAuthorizedVehicles(): 
-    # What are the authorized vehicles: Ford F-150, Chevrolet Silverado, Tesla CyberTruck, Toyota Tundra, Nissan Titan
+    # What are the authorized vehicles: Ford F-150, 
+    #   Chevrolet Silverado, Tesla CyberTruck, Toyota Tundra, Nissan Titan
     # print authorizedVehicles list
     for item in authorizedVehicles:
             print(item)
@@ -50,13 +55,15 @@ def checkVehicleName():
     if vehicleName in authorizedVehicles:
         print(f"{vehicleName} is an authorized vehicle")
     else: 
-        print(f"{vehicleName} is not an authorized vehicle, if you received" \
-              "this in error please check the spelling and try again")
+        print(f"{vehicleName} is not an authorized vehicle, if you" \
+               "received this in error please check the spelling"
+               "and try again")
           
 # create def for ADD vehicleName
 def addVehicleName(): 
     global authorizedVehicles
-    addName = input("Please Enter the full Vehicle name you would like to add: ")
+    addName = input("Please Enter the full Vehicle" \
+    "name you would like to add: ")
     # enter new vehicleName
     authorizedVehicles.append(addName)
     # print authorizedVehicles list with new vehicles added
@@ -69,13 +76,12 @@ def deleteVehicleName():
     deleteName = input("Please Enter the full Vehicle name you would" \
     " like to REMOVE: ")
     # print "Are you sure you want to remove "Nissan Titan" from the Authorized Vehicles List?"
-    input(f'Are you sure you want to remove "{deleteName}" from the Authorized Vehicles List?')
+    confirmName = input(f'Are you sure you want to remove' \
+                        '"{deleteName}" from the Authorized Vehicles List?')
     # if true, do this
-    if(deleteName == True): 
+    if(confirmName == "yes"): 
         print(f'You have REMOVED "{deleteName}" as an authorized vehicle')
-        # if not true, return to displaymenu
-    else: 
-        displayMenu()
+
 
 
 # final onLoad - prints what is shown in onLoad def function
