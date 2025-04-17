@@ -80,7 +80,9 @@ def deleteVehicleName():
                         '"{deleteName}" from the Authorized Vehicles List?')
     # if true, do this
     if(confirmName == "yes"): 
-        print(f'You have REMOVED "{deleteName}" as an authorized vehicle')
+        if deleteName in authorizedVehicles: 
+            authorizedVehicles.remove(deleteName)
+            print(f'You have REMOVED "{deleteName}" as an authorized vehicle')
 
 
 
