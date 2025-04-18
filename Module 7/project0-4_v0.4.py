@@ -77,7 +77,7 @@ def deleteVehicleName():
     " like to REMOVE: ")
     # print "Are you sure you want to remove "Nissan Titan" from the Authorized Vehicles List?"
     confirmName = input(f'Are you sure you want to remove' \
-                        '"{deleteName}" from the Authorized Vehicles List?')
+                        f'"{deleteName}" from the Authorized Vehicles List?')
     # if true, do this
     if(confirmName == "yes"): 
         if deleteName in authorizedVehicles: 
