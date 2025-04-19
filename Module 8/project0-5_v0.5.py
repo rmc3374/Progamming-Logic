@@ -1,22 +1,17 @@
+# import os to be able to open/use text file
 import os
-
-# global list of authorized vehicles
-authorizedVehicles = []
 
 # load vehicles from file at start
 def loadVehiclesFromFile(): 
-    global authorizedVehicles
     if os.path.exists("vehicleName.txt"):  
         with open("vehicleName.txt", "r") as file: 
             authorizedVehicles = [line.strip() for line in file]
-    if not os.path.exists("vehicleName.txt"): 
-        open("vehicleName.txt", "w").close()
-
+            return authorizedVehicles
 
 # save vehicleName to file
-def saveVehiclesToFile(): 
+def saveVehiclesToFile(vehicles): 
     with open("vehicleName.txt", "w") as file: 
-        for vehicle in authorizedVehicles: 
+        for vehicle in vehicles: 
             file.write(vehicle + "\n")
 
 #  onLoad - will pring display menu
@@ -61,14 +56,14 @@ def listAuthorizedVehicles():
     # What are the authorized vehicles: Ford F-150, 
     #   Chevrolet Silverado, Tesla CyberTruck, Toyota Tundra, Nissan Titan
     # print authorizedVehicles list
-    for item in authorizedVehicles:
+    for item in loadVehiclesFromFile():
             print(item)
 
 # create def for vehicleName - need to print each name individually and state if its authorized or not
 def checkVehicleName(): 
      # enter vehicle name
     vehicleName = input("Please Enter the full Vehicle name: ")
-    if vehicleName in authorizedVehicles:
+    if vehicleName in loadVehiclesFromFile():
         print(f"{vehicleName} is an authorized vehicle")
     else: 
         print(f"{vehicleName} is not an authorized vehicle, if you" \
@@ -77,12 +72,13 @@ def checkVehicleName():
           
 # create def for ADD vehicleName
 def addVehicleName(): 
+    vehicles = loadVehiclesFromFile()
     # global authorizedVehicles
     addName = input("Please Enter the full Vehicle" \
     "name you would like to add: ")
     # enter new vehicleName
-    authorizedVehicles.append(addName)
-    saveVehiclesToFile()
+    vehicles.append(addName)
+    saveVehiclesToFile(vehicles)
     # print authorizedVehicles list with new vehicles added
     print(f'You have added "{addName}" as an authorized vehicle')
 
@@ -96,9 +92,10 @@ def deleteVehicleName():
                         f'"{deleteName}" from the Authorized Vehicles List?')
     # if true, do this
     if(confirmName == "yes"): 
-        if deleteName in authorizedVehicles: 
-            authorizedVehicles.remove(deleteName)
-            saveVehiclesToFile()
+        vehicles = loadVehiclesFromFile()
+        if deleteName in vehicles: 
+            vehicles = [vehicle for vehicle in vehicles if vehicle != deleteName]
+            saveVehiclesToFile(vehicles)
             print(f'You have REMOVED "{deleteName}" as an authorized vehicle')
 
 
