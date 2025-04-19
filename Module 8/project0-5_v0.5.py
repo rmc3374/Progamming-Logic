@@ -3,14 +3,15 @@ import os
 
 # load vehicles from file at start
 def loadVehiclesFromFile(): 
-    if os.path.exists("vehicleName.txt"):  
-        with open("vehicleName.txt", "r") as file: 
+    if os.path.exists("C:\\Progamming Logic\\Module 8\\vehicleName.txt"):  
+        with open("C:\\Progamming Logic\\Module 8\\vehicleName.txt", "r") as file: 
             authorizedVehicles = [line.strip() for line in file]
+            file.close()
             return authorizedVehicles
 
 # save vehicleName to file
 def saveVehiclesToFile(vehicles): 
-    with open("vehicleName.txt", "w") as file: 
+    with open("C:\\Progamming Logic\\Module 8\\vehicleName.txt", "w") as file: 
         for vehicle in vehicles: 
             file.write(vehicle + "\n")
 
