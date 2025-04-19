@@ -3,11 +3,10 @@ import os
 
 # load vehicles from file at start
 def loadVehiclesFromFile(): 
-    if os.path.exists("C:\\Progamming Logic\\Module 8\\vehicleName.txt"):  
-        with open("C:\\Progamming Logic\\Module 8\\vehicleName.txt", "r") as file: 
-            authorizedVehicles = [line.strip() for line in file]
-            file.close()
-            return authorizedVehicles
+    # if os.path.exists("C:\\Progamming Logic\\Module 8\\vehicleName.txt"):  
+    with open("C:\\Progamming Logic\\Module 8\\vehicleName.txt", "r") as file: 
+        authorizedVehicles = [line.strip() for line in file]
+        return authorizedVehicles
 
 # save vehicleName to file
 def saveVehiclesToFile(vehicles): 
@@ -35,17 +34,17 @@ def onLoad():
             deleteVehicleName()
         if (menuSelection == '5'): 
             print("Thank you for using the AutoCountry" \
-                   "Vehicle Finder, good-bye!")
+                   " Vehicle Finder, good-bye!")
             break
 
     
 # displayMenu shows:
 def displayMenu(): 
     print("****************")
-    print("AutoCountry Vehicle Finder v0.4")
+    print("AutoCountry Vehicle Finder v0.5")
     print("****************")
     print("Please Enter the following number below " \
-    "from the following menu: ")
+    " from the following menu: ")
     print("1. PRINT all Authorized Vehicles")
     print("2. SEARCH for Authorized Vehicle")
     print("3. ADD Authorized Vehicle")
@@ -68,15 +67,15 @@ def checkVehicleName():
         print(f"{vehicleName} is an authorized vehicle")
     else: 
         print(f"{vehicleName} is not an authorized vehicle, if you" \
-               "received this in error please check the spelling"
-               "and try again")
+               " received this in error please check the spelling"
+               " and try again")
           
 # create def for ADD vehicleName
 def addVehicleName(): 
     vehicles = loadVehiclesFromFile()
     # global authorizedVehicles
     addName = input("Please Enter the full Vehicle" \
-    "name you would like to add: ")
+    " name you would like to add: ")
     # enter new vehicleName
     vehicles.append(addName)
     saveVehiclesToFile(vehicles)
@@ -89,7 +88,7 @@ def deleteVehicleName():
     deleteName = input("Please Enter the full Vehicle name you would" \
     " like to REMOVE: ")
     # print "Are you sure you want to remove "Nissan Titan" from the Authorized Vehicles List?"
-    confirmName = input(f'Are you sure you want to remove' \
+    confirmName = input(f'Are you sure you want to remove ' \
                         f'"{deleteName}" from the Authorized Vehicles List?')
     # if true, do this
     if(confirmName == "yes"): 
