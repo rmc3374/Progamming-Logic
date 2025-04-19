@@ -1,7 +1,23 @@
+import os
+
 # global list of authorized vehicles
-authorizedVehicles = ["Ford F-150", "Chevrolet Silverado",
-                        "Tesla CyberTruck", "Toyota Tundra",
-                          "Rivian R1T", "Ram 1500"]
+authorizedVehicles = []
+
+# load vehicles from file at start
+def loadVehiclesFromFile(): 
+    global authorizedVehicles
+    if os.path.exists("vehicleName.txt"):  
+        with open("vehicleName.txt", "r") as file: 
+            authorizedVehicles = [line.strip() for line in file]
+    if not os.path.exists("vehicleName.txt"): 
+        open("vehicleName.txt", "w").close()
+
+
+# save vehicleName to file
+def saveVehiclesToFile(): 
+    with open("vehicleName.txt", "w") as file: 
+        for vehicle in authorizedVehicles: 
+            file.write(vehicle + "\n")
 
 #  onLoad - will pring display menu
 def onLoad(): 
@@ -65,13 +81,13 @@ def addVehicleName():
     addName = input("Please Enter the full Vehicle" \
     "name you would like to add: ")
     # enter new vehicleName
-    vehicleNameFileWrite.append(addName)
+    authorizedVehicles.append(addName)
+    saveVehiclesToFile()
     # print authorizedVehicles list with new vehicles added
     print(f'You have added "{addName}" as an authorized vehicle')
 
 # create def for DELETE vehicleName
 def deleteVehicleName(): 
-    global authorizedVehicles
     # enter vehicleName to remove
     deleteName = input("Please Enter the full Vehicle name you would" \
     " like to REMOVE: ")
@@ -82,16 +98,8 @@ def deleteVehicleName():
     if(confirmName == "yes"): 
         if deleteName in authorizedVehicles: 
             authorizedVehicles.remove(deleteName)
+            saveVehiclesToFile()
             print(f'You have REMOVED "{deleteName}" as an authorized vehicle')
-
-
-# write the vehileNameFile
-def vehicleNameFileWrite(vehicleName): 
-    with open("vehicles.txt", "w") as file: 
-        file.write(vehicleName + "\n")
-
-# read/return vehicleNameFile
-# def vehicleNameReturn(): 
 
 
 # final onLoad - prints what is shown in onLoad def function
