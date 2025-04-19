@@ -53,8 +53,6 @@ def displayMenu():
 
 # create def for authorizedVehicles
 def listAuthorizedVehicles(): 
-    # What are the authorized vehicles: Ford F-150, 
-    #   Chevrolet Silverado, Tesla CyberTruck, Toyota Tundra, Nissan Titan
     # print authorizedVehicles list
     for item in loadVehiclesFromFile():
             print(item)
@@ -87,7 +85,7 @@ def deleteVehicleName():
     # enter vehicleName to remove
     deleteName = input("Please Enter the full Vehicle name you would" \
     " like to REMOVE: ")
-    # print "Are you sure you want to remove "Nissan Titan" from the Authorized Vehicles List?"
+    # print "Are you sure you want to remove "vehicleName" from the Authorized Vehicles List?"
     confirmName = input(f'Are you sure you want to remove ' \
                         f'"{deleteName}" from the Authorized Vehicles List?')
     # if true, do this
